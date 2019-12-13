@@ -1,26 +1,14 @@
 import React, { useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { client, q } from './config/db'
+import { getAllNotes, createNote, deleteNote, editNote } from './api'
 function App() {
 
   useEffect(() => {
-    client.query(
-      q.Paginate(
-        q.Match(
-          q.Ref('indexes/notes')))
-    )
-      .then((response) => {
-        const productRefs = response.data
-        // create new query out of todo refs. 
-        // https://docs.fauna.com/fauna/current/api/fql/
-        const getAllProductDataQuery = productRefs.map((ref) => {
-          return q.Get(ref)
-        })
-        // query the refs
-        return client.query(getAllProductDataQuery).then((data) => data)
-      })
-      .catch((error) => console.log('error', error.message))
+    getAllNotes.then(res => console.log(res))
+    // createNote('clean kitchen').then(res=> console.log(res))
+    // deleteNote("251637892935320064").then(res => console.log(res))
+    editNote('251638296424219147', 'new text').then(() => 'note updated successfully!')
   }, [])
   return (
     <div className="App">
