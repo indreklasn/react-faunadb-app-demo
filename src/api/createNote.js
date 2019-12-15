@@ -10,7 +10,7 @@ const createNote = text => client.query(
     },
   )
 )
-.then((ret) => console.log(ret))
+.then(ret => ret)
 .catch(err => console.warn(err))
 
 
