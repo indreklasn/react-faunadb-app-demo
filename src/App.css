@@ -2,8 +2,9 @@
   text-align: center;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 75px 0 25px;
+  flex-direction: flex-start;
+  align-items: flex-start;
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
@@ -21,7 +22,7 @@
   margin: 0 34px 0 0;
   padding: 0;
   outline: none;
-  min-width: 250px !important;
+  min-width: 250px;
 }
 
 .note-input {

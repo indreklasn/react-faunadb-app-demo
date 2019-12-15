@@ -10,7 +10,7 @@ const NoteForm = ({ form, notes, setNotes }) => {
   function handleSubmit(e) {
     e.preventDefault();
     validateFields((err, values) => {
-      if (!err) {
+      if (!err && values.note) {
         createNote(values.note).then(res => {
           const newNotesArray = notes.concat([res])
           setNotes(newNotesArray)

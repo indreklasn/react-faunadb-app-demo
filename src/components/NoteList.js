@@ -9,8 +9,10 @@ const NoteList = memo(({data, onRemove, onEdit}) => (
         <p 
           contentEditable
           suppressContentEditableWarning
+          onChange={e => onEdit(e, note.ref.id, e.currentTarget.textContent)}
+          onBlur={e => onEdit(e, note.ref.id, e.currentTarget.textContent)}
           onInput={e => onEdit(e, note.ref.id, e.currentTarget.textContent)}
-          style={{minWidth: '200px'}}>
+          >
             {note.data.text}
         </p>
         <Icon 
