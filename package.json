@@ -10,7 +10,8 @@
     "faunadb": "^2.10.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "react-toastify": "^5.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

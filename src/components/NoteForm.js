@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Button, Input } from 'antd';
 import { createNote } from '../api'
+import { toast } from 'react-toastify';
 
 const NoteForm = ({ form, notes, setNotes }) => {
 
@@ -13,6 +14,7 @@ const NoteForm = ({ form, notes, setNotes }) => {
         createNote(values.note).then(res => {
           const newNotesArray = notes.concat([res])
           setNotes(newNotesArray)
+          toast.success('Added Successfully')
           resetFields()
         })
       }
@@ -21,10 +23,10 @@ const NoteForm = ({ form, notes, setNotes }) => {
   
   
   return (
-    <Form layout="horizontal" onSubmit={handleSubmit}>
+    <Form style={{marginBottom: '25px'}} layout="horizontal" onSubmit={handleSubmit}>
       <Form.Item>
         {getFieldDecorator('note', {
-        rules: [{ required: true, message: 'Please Leave A Note' }],
+        rules: [],
         })(
           <Input
             className="note-input"

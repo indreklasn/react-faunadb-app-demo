@@ -21,6 +21,7 @@
   margin: 0 34px 0 0;
   padding: 0;
   outline: none;
+  min-width: 250px !important;
 }
 
 .note-input {
@@ -28,8 +29,15 @@
   border: none;
   padding: 5px 20px;
   min-width: 250px;
-  border: solid 0.5px #5c5c5c;
   border-radius: 4.5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  outline: none;
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
 }
 
 .note-row {
