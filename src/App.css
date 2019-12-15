@@ -8,14 +8,34 @@
   font-size: calc(10px + 2vmin);
 }
 
+.App-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .note-row p {
   margin: 0 34px 0 0;
   padding: 0;
+  outline: none;
+}
+
+.note-input {
+  height: 32px;
+  border: none;
+  padding: 5px 20px;
+  min-width: 250px;
+  border: solid 0.5px #5c5c5c;
+  border-radius: 4.5px;
 }
 
 .note-row {
   margin: 12px 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  text-align: left;
 }

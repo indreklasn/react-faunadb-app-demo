@@ -1,19 +1,26 @@
-import React, { useEffect, memo, useState } from 'react'
+import React, { memo } from 'react'
 import { Icon } from 'antd'
-import { deleteNote } from '../api'
 
 
-
-const NoteItem = memo(({data}) => (
+const NoteList = memo(({data, onRemove, onEdit}) => (
   <>
     {data && data.map(note => (
       <div key={note.ref.id} className="note-row">
-        <p style={{minWidth: '200px'}}>{note.data.text}</p>
-        <Icon theme="twoTone" style={{ fontSize: '16px', margin: '0 10px 0 0'}}  type="edit" />
-        <Icon onClick={() => deleteNote(note.ref.id)} theme="twoTone" style={{ fontSize: '16px'}} type="delete" />
+        <p 
+          contentEditable
+          suppressContentEditableWarning
+          onInput={e => onEdit(e, note.ref.id, e.currentTarget.textContent)}
+          style={{minWidth: '200px'}}>
+            {note.data.text}
+        </p>
+        <Icon 
+          onClick={(e) => onRemove(e, note.ref.id)} 
+          theme="twoTone" style={{ cursor: "pointer", fontSize: '16px'}} 
+          type="delete" 
+        />
       </div>
     ))}
   </>
 ))
 
-export default NoteItem;
+export default NoteList;
