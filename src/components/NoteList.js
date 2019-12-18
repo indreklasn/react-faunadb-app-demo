@@ -1,7 +1,6 @@
 import React, { memo } from 'react'
 import { Icon } from 'antd'
 
-
 const NoteList = memo(({data, onRemove, onEdit}) => (
   <>
     {data && data.map(note => (
